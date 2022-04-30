@@ -1,0 +1,15 @@
+.img{
+    border-radius: 100px;
+    height: 50px;
+    width: 70px;
+    margin-left: 20px;
+}
+
+.post{
+    color: red;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.like{margin-left: 20px;
+color: chartreuse; font-size: 25px;}

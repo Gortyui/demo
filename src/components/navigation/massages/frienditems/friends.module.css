@@ -1,0 +1,15 @@
+.item a.active {
+    color: rgb(57, 65, 87);
+}
+
+.item a {
+    font-size: 30px;
+    color: aqua;
+    text-decoration: none;
+}
+
+.img{width: 50px;height: 50px; border-radius: 50px;}
+
+.item a:active{
+    color: rgb(227, 255, 125);
+}

@@ -1,0 +1,44 @@
+.img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+}
+
+.user{background-color: blue;
+border: 3px solid red;width: 100%;
+overflow: auto;}
+
+.users{
+    height: 600px;
+    overflow: auto;
+    width: 45%;
+}
+
+.allpages{ width:auto;background-color: blueviolet; overflow: auto;}
+
+.load{width: 80px;height: 80px;}
+
+.dimon{background-color: red; animation: dimon 5s ease-in infinite;}
+
+
+@keyframes dimon {
+    0%{
+background-color: rgb(0, 255, 115);
+    }
+    25%{
+        background-color: rgb(0, 255, 255);
+    }
+
+    50%{
+        background-color: rgb(210, 241, 151);
+
+    }
+
+    75%{
+        background-color:rgb(115, 136, 255) ;
+    }
+
+    100%{
+        background-color: rgb(193, 255, 122);
+    }
+}

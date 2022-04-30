@@ -1,0 +1,26 @@
+.midbar {
+    grid-area: midbar;
+    /*grid-column: 2/5;*/
+}
+
+.midbar {
+    background-color: rgb(214, 188, 255);
+    padding-top: 50px;
+}
+
+.item a {
+    font-family: 'Comic Sans Ms';
+    color: red;
+    text-decoration: none;
+    
+}
+
+.item a:active {
+    color: rgb(95, 86, 35);
+}
+
+.item a.active {
+    color: rgb(0, 121, 151);
+}
+
+/*.mainitem{color: yellow;}*/

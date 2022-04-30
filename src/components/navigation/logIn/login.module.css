@@ -1,0 +1,7 @@
+.login{
+    text-align: center;
+}
+
+.loginarea{display: flex;justify-content: center;}
+
+.error{font-size: 1.7em;color: red;}

@@ -1,0 +1,35 @@
+*{margin:none}
+body{border: 2px solid red;}
+
+body{background-color: rgb(209, 231, 255);}
+
+body{min-height: 100vh;}
+html{min-height:100% ;}
+.q{font-size: 1.6rem;
+    text-align: center;
+    color:rgb(2, 22, 88);
+border: 0.2px solid orange}
+
+.body{display: grid;
+   /* grid-template-columns: 3fr 1fr ;
+   /*grid-template-rows:1fr 9fr 9fr 1fr  ;*/
+   grid-template-columns: 3fr 1fr ;
+   grid-template-rows:0.2fr 1.2fr 2fr 0.2fr;  
+    grid-template-areas: 'header header' 'sidebar  midbar' 'main main' 'footer footer';
+    grid-gap:0.5em;
+    height: 100%;
+    
+
+
+}
+.karmir{color:rgb(255, 31, 31)}
+
+.navigacia{grid-area:main;/*grid-column: 1/5;*/}
+.navigacia{background-color: rgb(245, 127, 151);
+    overflow: auto;
+min-height: 500px;}
+
+
+
+
+

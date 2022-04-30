@@ -1,0 +1,6 @@
+.sidbar{grid-area:sidebar;}
+.sidbar{background-color: rgba(146, 235, 241, 0.582);
+}
+#item{font-size: 30px;color: blue;font-family:"Comic Sans Ms";}
+
+.img{width: 100%; height: 100%; }
