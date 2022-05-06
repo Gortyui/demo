@@ -15,6 +15,7 @@ let initstate = {
         },
         
     ],
+  
     aboutme: "",
 
     contacs: {
@@ -25,9 +26,11 @@ let initstate = {
     lookingForAJobDescription: undefined,
     fullName: undefined,
     userId: undefined,
+    setProfileStatus:[],
     photos: {
 
     }
+    
 
 
 }
@@ -37,12 +40,24 @@ const deletepost = "profile/DELETE-POST"
 const Setprofile = "profile/SET-PROFILE"
 const changeUSerid = "profile/CHANGE-USERID"
 const SetStatus = "profile/SET-STATUS"
+const ChangeFoto= "profile/CHANGE-PHOTO"
+const ChProfile= "profile/Change-PROFILE"
+const SETProfileStatus= "profile/Set-PROFILE-STATUS"
+
 
 const profileReducer = (state = initstate, action) => {
 
     window.prof = state
 
     switch (action.type) {
+
+case ChangeFoto:{
+    return{...state,photos:{large:action.foto.large,small:action.foto.small}}
+}
+
+case SETProfileStatus:{
+    return {...state,setProfileStatus:action.setProfileStatus}
+}
 
         case addpost: {
             let massi = {
@@ -83,6 +98,7 @@ const profileReducer = (state = initstate, action) => {
         case Setprofile: {
             return {
                 ...state,
+                
                 /*posts:[
 
                 ] */
@@ -119,6 +135,13 @@ export function add(text) {
     }
 }
 
+export function SetProfileStatus(setProfileStatus) {
+    return {
+        type: SETProfileStatus,
+         setProfileStatus
+    }
+}
+
 export function setprofile(profile) {
     return {
         type: Setprofile,
@@ -130,6 +153,13 @@ export function chUserId(userID) {
     return {
         type: changeUSerid,
         userID
+    }
+}
+
+function changePhoto(foto) {
+    return {
+        type: ChangeFoto,
+        foto
     }
 }
 
@@ -147,6 +177,13 @@ export function deletePost(id) {
     }
 }
 
+function changeProfile(data) {
+    return {
+        type: ChProfile,
+        data
+    }
+}
+
 export const getProfile = (id) => {
 
 
@@ -156,6 +193,43 @@ export const getProfile = (id) => {
         let Profile = await profileAPI.GetProfile(id)
 
         dispatch(setprofile(Profile))
+
+
+
+    }
+}
+
+export const Changeprofile = (data) => {
+
+
+
+    return async (dispatch,getState) => {
+
+        let resP =  profileAPI.SetProfile(data)
+        let res = await resP
+        console.log(res)
+        if(res.resultCode===0){
+            dispatch(changeProfile())
+            dispatch(getProfile(getState().auth.id))
+        }else{
+            dispatch(SetProfileStatus(res.messages))
+        }
+
+
+
+    }
+}
+
+export const changephoto = (foto) => {
+
+
+
+    return async (dispatch) => {
+        
+        let res = await profileAPI.ChangeFoto(foto)
+        console.log(res)
+if(res.data.resultCode===0){dispatch(changePhoto(res.data.data.photos))}
+        
 
 
 
@@ -181,13 +255,12 @@ export const setstatus = (status) => {
 
 
 
-    return (dispatch) => {
+    return async(dispatch) => {
 
-        profileAPI.UpdStatus(status)
-            .then((data) => {
-                dispatch(setStatus(status))
+       let Status= await profileAPI.UpdStatus(status)
+             dispatch(setStatus(status))
 
-            })
+          
 
     }
 }

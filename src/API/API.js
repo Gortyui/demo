@@ -15,7 +15,11 @@ export const userAPI= {
 export const profileAPI={
     GetProfile:(id)=>{return instance.get(`profile/${id}`).then((data)=>{return data.data})},
     GetStatus:(id)=>{return instance.get(`profile/status/${id}`).then((data)=>{return data.data})},
-    UpdStatus:(status)=>{return instance.put(`profile/status`,{status}).then((data)=>{return data.data})}
+    UpdStatus:(status)=>{return instance.put(`profile/status`,{status}).then((data)=>{return data.data})},
+    ChangeFoto:(foto)=>{ let formData=new FormData()
+        formData.append('image',foto)
+        return instance.put(`profile/photo`,formData,{headers:{'Content-Type':"multipart/form-data"}})},
+        SetProfile:(data)=>{return instance.put(`profile`,data).then((data)=>{return data.data})}
 };
 
 

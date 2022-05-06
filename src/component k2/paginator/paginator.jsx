@@ -35,7 +35,7 @@ let portionCount=Math.ceil(pagesCount/props.portion)
 
 
     return <div>
-<div>{leftBorder>1 ? <button onClick={changeLeftBorder}>Prev</button> :<></>}{allpages}{portionNumber<portionCount?<button onClick={changeRightBorder}>next</button>:<></>}</div>
+<div className={c.paginator}>{leftBorder>1 ? <button onClick={changeLeftBorder}>Prev</button> :<></>}{allpages}{portionNumber<portionCount?<button onClick={changeRightBorder}>next</button>:<></>}</div>
     </div>
 }
 

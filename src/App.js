@@ -1,7 +1,6 @@
 import React, { lazy, useEffect } from 'react';
-import {Route,Routes,} from 'react-router-dom'
+import {BrowserRouter, HashRouter, Route,Routes,} from 'react-router-dom'
 import './App.css';
-import {BrowserRouter} from 'react-router-dom'
 import store from './redux/redux-store';
 
 import {Provider} from 'react-redux'
@@ -101,11 +100,11 @@ let AppContainer= connect(mapStateToProps,mapDispatchToProps)(App);
 
 const MucukApp=()=>{
 return <React.StrictMode>
-<BrowserRouter>
+<HashRouter>
  <Provider store={store} > 
   <AppContainer />
   </Provider >
-  </BrowserRouter>
+  </HashRouter>
     </React.StrictMode>
 
 

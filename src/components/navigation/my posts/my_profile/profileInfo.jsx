@@ -48,6 +48,7 @@ return <div>
 
 <div className={c.imgs}><img src={this.props.posts.photos.small} className={c.small} alt="no foto" />
 <br />
+
 <img src={this.props.posts.photos.large} alt="no foto" className={c.large} />
 </div>
 <br />
