@@ -1,0 +1,2 @@
+(this.webpackJsonpreact1=this.webpackJsonpreact1||[]).push([[6],{97:function(c,a,s){"use strict";s.r(a);s(1);var t=s(0);a.default=function(c){return Object(t.jsx)("div",{className:"navigacia",children:"Music"})}}}]);
+//# sourceMappingURL=6.3465cd9c.chunk.js.map
