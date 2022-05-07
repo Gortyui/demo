@@ -14,12 +14,12 @@ let LoginForm=(props)=>{
 
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({mode:'onBlur'});
-    const onSubmit = data => {props.SetLogin(true,data.name,data.password,data.check);};
+    const onSubmit = data => {props.SetLogin(true,data.name,data.password,data.check,data.captcha);};
    /* let d=watch("name")
     let v=watch("password")
     let z=watch("check")
     console.log(d,v,z)*/
-    watch('name')
+
 
 //props.SetLoginStatus(
  
@@ -53,7 +53,9 @@ let LoginForm=(props)=>{
             errors.check.type==='maxLength' ?<span className={c.error}>maxLength </span> :
         errors.check.type==='required' ?<span className={c.error}>required</span> :<></>:null}
           <br />
-
+          {props.auth.loginStatus===10 ? <div><img src={props.auth.captcha} alt="" /> <br />
+          <input {...register('captcha')} /></div>:<></>}
+          <br />
           {props.auth.loginStatus===1 ? <span className={c.error}>invalid values</span> :<></>}
           {props.auth.loginStatus===10 ? <span className={c.error}>do captcha</span> :<></>}
           

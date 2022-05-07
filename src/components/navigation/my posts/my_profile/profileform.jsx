@@ -51,7 +51,7 @@ mainLink:  data.mainLink
 
 <div><span className={c.item}>Status:</span><input {...register('status')} defaultValue={props.status} autoFocus={true} className={`${c.changeStatus}`}   /></div>
 <br />
-<span  className={`${c.item}`} >AboutMe:<input {...register('aboutme')} defaultValue={props.posts.aboutme} /></span>
+<span  className={`${c.item}`} >AboutMe:<textarea {...register('aboutme')} defaultValue={props.posts.aboutme} /></span>
 <br />
 <br />
 {<div className={c.contacs}><Contacs func={register} obj={props.posts.contacs} /></div>}

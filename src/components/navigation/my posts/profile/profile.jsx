@@ -14,14 +14,14 @@ function Profile(props) {
 
 return <div>
     
-    {props.isowner ? < div className={`${classes.orange} q`}>
+    < div className={`${classes.orange} q`}>
 
         BAREV
-        <Input  pl='grir' {...props} />
+        {props.isowner ? <div><Input  pl='grir' {...props} />
         <br />
-        <br />
+        <br /></div> : <></>}
 
-</div> : <></>}
+</div>
 
 </div>
 }

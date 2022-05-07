@@ -1,5 +1,5 @@
 import React, { lazy, useEffect } from 'react';
-import {BrowserRouter, HashRouter, Route,Routes,} from 'react-router-dom'
+import {BrowserRouter, HashRouter, Navigate, Route,Routes,} from 'react-router-dom'
 import './App.css';
 import store from './redux/redux-store';
 
@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 
 import Sidebar from './components/sidebar/sidebar';
 import Midbar from './components/midbar/midbar';
-
+import Error from './components/error/Error';
 import Footer from './components/footer/footer';
 //import Massage from './components/navigation/massages/this chat/massages';
 
@@ -31,7 +31,7 @@ import withSuspense from './hoc/withSuspense';
 
 
 
-
+//<Switch> - kareli e kangnel arajin hamapatasxan routi vra
 //export default Header;store={props.store}
 
 function App (props){ 
@@ -58,6 +58,7 @@ const AboutUs=lazy(()=>import('./components/navigation/about us/about_us'))
     <Sidebar/>
     <Midbar/>
     <Routes>
+    <Route path='/*' element={<Error />} />
     <Route path='/' element={<MYprof  />} />
     <Route path='/massage/*' element={<Dialogcontainer  />}  />
     <Route path='/profile/:id' element={<MYprof />} />

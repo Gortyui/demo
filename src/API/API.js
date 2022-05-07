@@ -29,8 +29,9 @@ export const headerAPI={
 
 
 export const loginAPI={
-    Login:(email,password,rememberMe=false)=>{return  instance.post(`auth/login`,{email,password,rememberMe})},
-    LogOut:()=>{return  instance.delete(`auth/login`)}
+    Login:(email,password,rememberMe=false,captcha)=> { return  instance.post(`auth/login`,{email,password,rememberMe,captcha})},
+    LogOut:()=>{return  instance.delete(`auth/login`)},
+    getCaptcha:()=>{return instance.get(`security/get-captcha-url`).then((data)=>{return data.data})}
 };
 
 /*.then((data)=>{console.log(data.data); return data.data })*/

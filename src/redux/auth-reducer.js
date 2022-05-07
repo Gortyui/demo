@@ -8,14 +8,14 @@ let initstate = {
     login: "",
     email: "",
     isauth: false,
-    loginStatus: undefined
+    loginStatus: undefined,
+    captcha:""
 }
 
 const setuserdata = 'auth/SET-USER-DATA'
 const setauth = 'auth/SET-AUTH'
 const setloginstatus = 'auth/SET-LOGIN-STATUS'
-/*const login='LOGIN'
-const logout='LOG-OUT'*/
+const setcaptcha='auth/SET-CAPTCHA'
 
 const authReducer = (state = initstate, action) => {
 
@@ -32,6 +32,13 @@ const authReducer = (state = initstate, action) => {
                 return {
                     ...state,
                     isauth: action.auth
+                }
+            }
+
+            case setcaptcha:{
+                return {
+                    ...state,
+                    captcha:action.captcha
                 }
             }
 
@@ -69,6 +76,12 @@ export function SetAuth(auth = true) {
     }
 }
 
+export function SetCaptcha(captcha) {
+    return {
+        type: setcaptcha,
+        captcha
+    }
+}
 
 /*function Login() {
     return {type:login}
@@ -78,6 +91,15 @@ function LogOut() {
     return {type:logout}
 }*/
 
+export const GetCapcha = () => {
+
+    return async (dispatch) => {
+       
+let captcha= await loginAPI.getCaptcha();
+
+dispatch(SetCaptcha(captcha.url))
+}
+}
 
 
 export const getAuth = () => {
@@ -101,11 +123,17 @@ export const getAuth = () => {
 
 }
 
-export const SetLogin = (login, email, password, rememberMe, ) => {
+export const SetLogin = (login, email, password, rememberMe,captcha=null ) => {
 
     return async (dispatch) => {
+
+
+
         if (login) {
-            let login = await loginAPI.Login(email, password, rememberMe)
+            
+
+            let login =await  loginAPI.Login(email, password, rememberMe, captcha)
+            dispatch(GetCapcha()) 
             if (login.data.resultCode === 0) {
                 dispatch(getAuth());
                 dispatch(SetAuth())
@@ -127,7 +155,6 @@ export const SetLogin = (login, email, password, rememberMe, ) => {
 
 
 }
-
 
 
 

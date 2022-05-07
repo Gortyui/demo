@@ -211,6 +211,7 @@ export const Changeprofile = (data) => {
         if(res.resultCode===0){
             dispatch(changeProfile())
             dispatch(getProfile(getState().auth.id))
+            dispatch(SetProfileStatus([]))
         }else{
             dispatch(SetProfileStatus(res.messages))
         }
