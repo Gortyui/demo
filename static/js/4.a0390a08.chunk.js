@@ -1,0 +1,2 @@
+(this.webpackJsonpreact1=this.webpackJsonpreact1||[]).push([[4],{103:function(r,e,c){"use strict";c.r(e);c(1);var t=c(97),n=c.n(t),s=c(0);e.default=function(){return Object(s.jsx)("div",{className:"navigacia ".concat(n.a.error),children:Object(s.jsxs)("div",{children:["Error 404 ",Object(s.jsx)("br",{}),"page not found,",Object(s.jsx)("br",{}),"check url"]})})}},97:function(r,e,c){r.exports={error:"error_error__bRfUj"}}}]);
+//# sourceMappingURL=4.a0390a08.chunk.js.map

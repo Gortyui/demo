@@ -1,0 +1,2 @@
+(this.webpackJsonpreact1=this.webpackJsonpreact1||[]).push([[5],{102:function(a,e,t){"use strict";t.r(e);t(1);var n=t(95),c=t.n(n),i=t(0);e.default=function(a){return Object(i.jsx)("div",{className:"navigacia",children:Object(i.jsx)("div",{className:c.a.item,children:"Nerka shamanak proekti vra ashxatum e mek hogi ev ayn mec ce bayc herankarum ayn @ndlaynvelu e"})})}},95:function(a,e,t){a.exports={item:"about_us_item__1XPPj"}}}]);
+//# sourceMappingURL=5.0ab8df2a.chunk.js.map
