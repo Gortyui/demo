@@ -2,9 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import c from './header.module.css'
 function LoginEl(props){
+//className={({isActive})=> isActive ? classes.active : ''}
 
-
-    return <div>barev : {props.login}<br /> <button onClick={props.disslogin} className={c.login}>disslogin</button></div>
+    return <div>barev : {props.login}<br /> <button onClick={props.disslogin} className={c.login}>disslogin</button>
+     <div><NavLink to='/setapikey'><button className={c.setApiKey}>setspikey</button></NavLink> </div></div>
 }
 
 function NotLoginEl(){

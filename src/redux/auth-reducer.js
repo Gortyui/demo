@@ -2,6 +2,7 @@ import {
     headerAPI,
     loginAPI
 } from '../API/API'
+import { GetApi_Key } from './app-reducer'
 
 let initstate = {
     id: undefined,
@@ -10,12 +11,14 @@ let initstate = {
     isauth: false,
     loginStatus: undefined,
     captcha:""
+    
 }
 
 const setuserdata = 'auth/SET-USER-DATA'
 const setauth = 'auth/SET-AUTH'
 const setloginstatus = 'auth/SET-LOGIN-STATUS'
 const setcaptcha='auth/SET-CAPTCHA'
+
 
 const authReducer = (state = initstate, action) => {
 
@@ -28,6 +31,9 @@ const authReducer = (state = initstate, action) => {
 
 
             }
+
+          
+
             case setauth: {
                 return {
                     ...state,
@@ -83,6 +89,9 @@ export function SetCaptcha(captcha) {
     }
 }
 
+
+
+
 /*function Login() {
     return {type:login}
 }
@@ -102,20 +111,22 @@ dispatch(SetCaptcha(captcha.url))
 }
 
 
+
 export const getAuth = () => {
 
     return async (dispatch) => {
 
         let authP = headerAPI.GetAuth()
         let auth = await authP
-
         if (auth.resultCode === 0) {
-            dispatch(SetAuth())
+            dispatch(SetAuth()) 
             dispatch(SetUserData(auth.data))
+
             console.log(auth.data)
 
 
         }
+        authP.then(()=>{dispatch(GetApi_Key())  })
 
         return authP
 
@@ -141,11 +152,10 @@ export const SetLogin = (login, email, password, rememberMe,captcha=null ) => {
             dispatch(SetLoginStatus(login.data.resultCode))
 
         } else {
-
+            
             let login = await loginAPI.LogOut()
-            if (login.data.resultCode === 0) {
-
-                dispatch(getAuth());
+            if (login.data.resultCode === 0){
+                dispatch(getAuth())
                 dispatch(SetAuth(false))
             }
             dispatch(SetLoginStatus(login.data.resultCode))

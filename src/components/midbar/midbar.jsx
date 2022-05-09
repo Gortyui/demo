@@ -22,8 +22,10 @@ return <div className={`${classes.midbar} q`}>
         <div><NavLink to='/friends' className={({isActive})=> isActive ? classes.active : ''}>friends</NavLink></div>
 
         <div><NavLink to='/users' className={({isActive})=> isActive ? classes.active : ''}>users</NavLink></div>
-
+        
         <div><NavLink to='/yourface'className={({isActive})=> isActive ? classes.active : ''}>yourface</NavLink> </div>
+
+       
 
         <div><a href='https://social-network.samuraijs.com/signUp'>if you dont registered</a></div>
     </div>

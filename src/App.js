@@ -7,8 +7,9 @@ import {Provider} from 'react-redux'
 
 import Sidebar from './components/sidebar/sidebar';
 import Midbar from './components/midbar/midbar';
-import Error from './components/error/Error';
+
 import Footer from './components/footer/footer';
+
 //import Massage from './components/navigation/massages/this chat/massages';
 
 
@@ -47,9 +48,9 @@ const Music=lazy(()=>import('./components/navigation/music/music'))
 const Settings=lazy(()=>import('./components/navigation/settings/settings'))
 const AboutUs=lazy(()=>import('./components/navigation/about us/about_us'))
  const  Friendscontain=lazy(()=>import('./components/navigation/mfF/friends/friends_map'))  
+const  Error =lazy(()=>import('./components/error/Error'))  
 
-
-
+const SetApiKey=lazy(()=>import('./components/navigation/set_api_key/SetApiKey'))
     if(!props.initelized){return <Loader />}
       return(
     <div className="body">
@@ -58,8 +59,9 @@ const AboutUs=lazy(()=>import('./components/navigation/about us/about_us'))
     <Sidebar/>
     <Midbar/>
     <Routes>
-    <Route path='/*' element={<Error />} />
+    <Route path='/*' element={withSuspense(Error)()} />
     <Route path='/' element={<MYprof  />} />
+    <Route path='/setapikey' element={withSuspense(SetApiKey)()} />
     <Route path='/massage/*' element={<Dialogcontainer  />}  />
     <Route path='/profile/:id' element={<MYprof />} />
     <Route path='/profile' element={<MYprof />} />

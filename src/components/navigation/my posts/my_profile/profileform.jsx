@@ -56,7 +56,7 @@ mainLink:  data.mainLink
 <br />
 {<div className={c.contacs}><Contacs func={register} obj={props.posts.contacs} /></div>}
 
-    <span className={c.item}>lookingforajob:<input  {...register('lookingjob')} type='checkbox' /></span>
+    <span className={c.item}>lookingforajob:<input  defaultChecked={props.posts.lookingForAJob}  {...register('lookingjob')} type='checkbox' /></span>
 <br />
     <span className={c.item}>lookingforajob des:<input {...register('job_des')} defaultValue={props.posts.lookingForAJobDescription} /></span>
   <br />  <button>save</button>
